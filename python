@@ -1,0 +1,75 @@
+INITIALIZE VARIABLES
+------------------------------------------------------------
+population = initial_population
+year_list = [0]
+population_list = [population]
+print("\nPopulation Growth Simulation")
+print("-" * 45)
+print(f"{'Year':<10}{'Population'}")
+print("-" * 45)
+print(f"{0:<10}{population:,.0f}")
+
+============================================================
+Population Growth Simulation
+Computational Science Laboratory Activity
+============================================================
+import matplotlib.pyplot as plt
+------------------------------------------------------------
+USER INPUT
+------------------------------------------------------------
+initial_population = int(input("Enter the initial population: "))
+growth_rate = float(input("Enter annual growth rate (%): "))
+Convert percentage to decimal
+growth_rate = growth_rate / 100
+years = int(input("Enter number of years to simulate: "))
+
+==================================================
+STEP 7: VISUALIZE ACTUAL VS PREDICTED
+==================================================
+plt.figure(figsize=(10,5))
+plt.scatter(
+    data["Day_Number"],
+    data["Temperature"],
+    label="Actual Data"
+)
+plt.plot(
+    data["Day_Number"],
+    model.predict(X),
+    linewidth=2,
+    label="Regression Line"
+)
+plt.scatter(
+    future_days,
+    predictions,
+    marker='x',
+    s=100,
+    label="Future Predictions"
+)
+plt.title("Weather Forecast using Linear Regression")
+plt.xlabel("Day Number")
+plt.ylabel("Temperature (°C)")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+==================================================
+STEP 6: PREDICT NEXT 7 DAYS
+==================================================
+future_days = np.arange(len(data), len(data)+7).reshape(-1,1)
+predictions = model.predict(future_days)
+print("\nPredicted Temperatures for Next 7 Days")
+for i, temp in enumerate(predictions, start=1):
+    print(f"Day +{i}: {temp:.2f} °C"
+
+#Compute Mean Temperature #
+mean_temp = data["Temperature"].mean()
+print("\nMean Temperature:")
+print(f"{mean_temp:.2f} °C")
+
+i type sa unang cell box
+#Load Weather Data#
+import pandas as pd
+data=pd.read_csv("weather_data.csv")
+csv file should be located within the same folder of Python script file
+print("\nWEATHER DATA")
+print(data)
